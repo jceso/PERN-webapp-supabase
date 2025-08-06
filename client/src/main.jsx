@@ -7,7 +7,7 @@ import './index.css'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <>
-      <h1 className='text-center pt-4 text-3xl'>PERN w/Supabase - Client side w/React</h1>
+      <h1 className='pb-6 text-center text-2xl'>PERN w/Supabase - Client side w/React</h1>
       <RouterProvider router={router} />
     </>
   </StrictMode>

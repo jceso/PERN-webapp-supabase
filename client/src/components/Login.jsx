@@ -3,11 +3,8 @@ import { Link } from 'react-router-dom';
 import { supabase } from '../supabaseClient';
 
 export default function Login() {
-    const [authUserId, setAuthUserId] = useState(null);
     const [loading, setLoading] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
-
-    // Step 1
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -35,10 +32,10 @@ export default function Login() {
     };
 
     return (
-        <div style={{ maxWidth: '400px', margin: '0 auto' }}>
-            <form onSubmit={handleAuthSignIn}>
-                <h2>Login</h2>
-                <input className='p-3 mt-4'
+        <div className="bg-green-950 border-4 border-green-600 rounded-4xl text-white p-7 max-w-[600px] mx-auto">
+            <form className='max-w-md m-auto' onSubmit={handleAuthSignIn}>
+                <h2 className='text-4xl font-bold mb-9'>Login</h2>
+                <input className='bg-green-400 border-2 border-green-800 p-3 w-full rounded-lg'
                     type="email"
                     placeholder="Email"
                     value={email}
@@ -46,7 +43,7 @@ export default function Login() {
                     required
                 />
 
-                <input className='p-3 mt-4'
+                <input className='bg-green-400 border-2 border-green-800 p-3 mt-4 w-full rounded-lg'
                     type="password"
                     placeholder="Password"
                     value={password}
@@ -54,12 +51,12 @@ export default function Login() {
                     required
                 />
 
-                <button className='mt-4' type="submit" disabled={loading}>
+                <button className='p-3 mt-6 w-full text-green-950 font-bold text-xl' type="submit" disabled={loading}>
                     {loading ? 'Connecting...' : 'Sign in'}
                 </button>
 
-                <p>You don't have any account? <Link to='/signup'>Sign up!</Link></p>
-                {errorMsg && <p style={{ color: 'red' }}>{errorMsg}</p>}
+                {errorMsg && <p  className='bg-red-200 border-2 border-red-800 mt-3 mx-6 p-4 rounded-xl text-bold text-red-500'>{errorMsg}</p>}
+                <p className='mt-6'>You don't have an account? <Link to='/signup'>Sign up!</Link></p>
             </form>
         </div>
     );
