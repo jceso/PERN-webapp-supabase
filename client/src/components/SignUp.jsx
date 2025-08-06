@@ -116,39 +116,45 @@ export default function SignUp() {
     return (
         <div style={{ maxWidth: '400px', margin: '0 auto' }}>
             {step === 1 ? (
-                <form onSubmit={handleStepOne}>
-                    <h2>Registration (Step 1)</h2>
-                    <input
-                        type="text"
-                        placeholder="First name"
-                        value={firstName}
-                        onChange={(e) => setFirstName(e.target.value)}
-                        required
-                    />
+                <div>
+                    <form className='max-w-md m-auto pt-24' onSubmit={handleStepOne}>
+                        <h2 className='font-bold pb-2'>Registration</h2>
+                        <div className='flex gap-3 mt-4'>
+                            <input
+                                className='p-3 w-1/2'
+                                type="text"
+                                placeholder="First name"
+                                value={firstName}
+                                onChange={(e) => setFirstName(e.target.value)}
+                                required
+                            />
+                            <input
+                                className='p-3 w-1/2'
+                                type="text"
+                                placeholder="Last name"
+                                value={lastName}
+                                onChange={(e) => setLastName(e.target.value)}
+                                required
+                            />
+                        </div>
 
-                    <input
-                        type="text"
-                        placeholder="Last name"
-                        value={lastName}
-                        onChange={(e) => setLastName(e.target.value)}
-                        required
-                    />
+                        <input className='p-3 mt-4 w-full'
+                            type="email"
+                            placeholder="Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
 
-                    <input
-                        type="email"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
+                        <button className='p-3 mt-6 w-full' type="submit" disabled={loading}>
+                            {loading ? 'Registrazione...' : 'Continua'}
+                        </button>
 
-                    <button type="submit" disabled={loading}>
-                        {loading ? 'Registrazione...' : 'Continua'}
-                    </button>
-
-                    <p>Already have an account? <Link to='/login'>Sign in!</Link></p>
-                    {errorMsg && <p style={{ color: 'red' }}>{errorMsg}</p>}
-                </form>
+                        
+                    </form>
+                    <p className='mt-14'>Already have an account? <Link to='/login'>Sign in!</Link></p>
+                        {errorMsg && <p style={{ color: 'red' }}>{errorMsg}</p>}
+                </div>
             ) : (
                 <form onSubmit={handleFinalSubmit}>
                     <h2>Completamento profilo (Passo 2)</h2>

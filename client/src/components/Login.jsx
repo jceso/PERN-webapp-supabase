@@ -38,7 +38,7 @@ export default function Login() {
         <div style={{ maxWidth: '400px', margin: '0 auto' }}>
             <form onSubmit={handleAuthSignIn}>
                 <h2>Login</h2>
-                <input
+                <input className='p-3 mt-4'
                     type="email"
                     placeholder="Email"
                     value={email}
@@ -46,7 +46,7 @@ export default function Login() {
                     required
                 />
 
-                <input
+                <input className='p-3 mt-4'
                     type="password"
                     placeholder="Password"
                     value={password}
@@ -54,8 +54,8 @@ export default function Login() {
                     required
                 />
 
-                <button type="submit" disabled={loading}>
-                    {loading ? 'Registrazione...' : 'Continua'}
+                <button className='mt-4' type="submit" disabled={loading}>
+                    {loading ? 'Connecting...' : 'Sign in'}
                 </button>
 
                 <p>You don't have any account? <Link to='/signup'>Sign up!</Link></p>
