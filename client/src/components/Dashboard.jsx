@@ -19,7 +19,6 @@ export default function Dashboard() {
       console.log("Now:", now.toISOString());
       console.log("Next week:", nextWeek.toISOString());
 
-      console.log("Sono dentro useEffect()")
       const { data, error } = await supabase
         .from('events')
         .select('*')
